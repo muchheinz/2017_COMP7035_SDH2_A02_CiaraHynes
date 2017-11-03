@@ -189,16 +189,23 @@ public class DivideAndConquerAlgorithms {
 
 	public int power(int n, int m){
 
-		int thePower = 0;
-			
-		for(int count = 0; count < n; count++)
+		int power = 0;
+		int result = 0;
+		
+		
+		if( m == 0)
 		{
-			if(n == 0)
-			{
-				
-			}
+			result = 1;
 		}
-		return thePower;
+		
+		else
+		{
+			power = m-1;
+			result = (power(n, power) * n);
+		}
+				
+	
+		return result;
 		
 		
 	}
