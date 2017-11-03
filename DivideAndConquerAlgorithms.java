@@ -75,20 +75,28 @@ public class DivideAndConquerAlgorithms {
 	public int maxInt(MyList<Integer> m){
 		
 		int result = 0;
+		int elementOne = 0;
 		
-		for( int count = 0; count < m.length(); count++ )
+		if(m.length() == 0)
 		{
-			if( count == (m.length()-1) )
-			{
-				result = (m.length()-1);
-			}
-			
-			else
-			{
-				result = -1;
-			}
+			result = -1;
 		}
 		
+		else
+		{
+			elementOne = m.getElement(0);
+			m.removeElement(0);
+			result = maxInt(m);
+			
+			if(elementOne > result)
+			{
+				result = elementOne;
+			}
+			
+			m.addElement(0, elementOne);
+			
+		}
+	
 		return result;
 	}
 
@@ -100,10 +108,35 @@ public class DivideAndConquerAlgorithms {
 	 * @param m: The MyList we want to check.
 	 * @return: Whether m is sorted in decreasing order or not.  
 	 */	
-	public boolean isReverse(MyList<Integer> m){
-
+	//public boolean isReverse(MyList<Integer> m){
 		
-	}
+	/*	boolean isDecreasing = false;
+		
+		if(m.length() == 0)
+		{
+			isDecreasing = false;
+		}
+		
+		else
+		{
+			
+		}
+		for(int count = 0; count < m.length(); count++)
+		{
+			if(currentNumber > m.getElement(count))
+			{
+				currentNumber = m.getElement(count);
+				
+				isDecreasing = true;
+			}
+			
+			else
+			{
+				isDecreasing = false;
+			}
+		}
+		return isDecreasing;*/
+	//}
 
 	//-------------------------------------------------------------------
 	// 3. getNumAppearances --> Computes the amount of times that integer appears in MyList  
@@ -116,6 +149,32 @@ public class DivideAndConquerAlgorithms {
 	 */	
 	public int getNumAppearances(MyList<Integer> m, int n){
 
+		int appearance = 0;
+		int elementOne = 0;
+		int result = 0;
+		
+		if(m.length() == 0)
+		{
+			appearance = -1;
+		}
+		
+		else
+		{
+			elementOne = m.getElement(0);
+			m.removeElement(0);
+			result = maxInt(m);
+			
+			if(elementOne == result)
+			{
+				appearance++;
+			}
+			
+			m.addElement(0, elementOne);
+			
+		}
+
+		
+		return appearance;
 	}
 	
 	//-------------------------------------------------------------------
@@ -130,6 +189,18 @@ public class DivideAndConquerAlgorithms {
 
 	public int power(int n, int m){
 
+		int thePower = 0;
+			
+		for(int count = 0; count < n; count++)
+		{
+			if(n == 0)
+			{
+				
+			}
+		}
+		return thePower;
+		
+		
 	}
 	
 	//-------------------------------------------------------------------
@@ -141,6 +212,7 @@ public class DivideAndConquerAlgorithms {
 	 * @return: The term being computed 
 	 */	
 	public int lucas(int n){
+		return n;
 
 	}
 
