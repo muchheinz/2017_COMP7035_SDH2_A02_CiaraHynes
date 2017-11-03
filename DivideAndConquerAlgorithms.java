@@ -73,7 +73,23 @@ public class DivideAndConquerAlgorithms {
 	 * @return: The maximum item of MyList	  
 	 */	
 	public int maxInt(MyList<Integer> m){
-
+		
+		int result = 0;
+		
+		for( int count = 0; count < m.length(); count++ )
+		{
+			if( count == (m.length()-1) )
+			{
+				result = (m.length()-1);
+			}
+			
+			else
+			{
+				result = -1;
+			}
+		}
+		
+		return result;
 	}
 
 	//-------------------------------------------------------------------
@@ -86,6 +102,7 @@ public class DivideAndConquerAlgorithms {
 	 */	
 	public boolean isReverse(MyList<Integer> m){
 
+		
 	}
 
 	//-------------------------------------------------------------------
