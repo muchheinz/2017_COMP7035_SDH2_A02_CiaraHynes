@@ -108,35 +108,34 @@ public class DivideAndConquerAlgorithms {
 	 * @param m: The MyList we want to check.
 	 * @return: Whether m is sorted in decreasing order or not.  
 	 */	
-	//public boolean isReverse(MyList<Integer> m){
+	public boolean isReverse(MyList<Integer> m){
 		
-	/*	boolean isDecreasing = false;
+		boolean isDecreasing = false;
+		int elementOne = 0;
+		int result = 0;
 		
 		if(m.length() == 0)
 		{
-			isDecreasing = false;
+			isDecreasing = true;
 		}
 		
 		else
 		{
+			elementOne = m.getElement(0);
+			m.removeElement(0);
+			result = maxInt(m);
 			
-		}
-		for(int count = 0; count < m.length(); count++)
-		{
-			if(currentNumber > m.getElement(count))
+			if(elementOne > result)
 			{
-				currentNumber = m.getElement(count);
-				
-				isDecreasing = true;
+				result = elementOne;
 			}
 			
-			else
-			{
-				isDecreasing = false;
-			}
+			m.addElement(0, elementOne);
+			
 		}
-		return isDecreasing;*/
-	//}
+		
+		return isDecreasing;
+	}
 
 	//-------------------------------------------------------------------
 	// 3. getNumAppearances --> Computes the amount of times that integer appears in MyList  
@@ -151,24 +150,25 @@ public class DivideAndConquerAlgorithms {
 
 		int appearance = 0;
 		int elementOne = 0;
-		int result = 0;
 		
 		if(m.length() == 0)
 		{
-			appearance = -1;
+			appearance = 0;
 		}
 		
 		else
 		{
+			
 			elementOne = m.getElement(0);
 			m.removeElement(0);
-			result = maxInt(m);
 			
-			if(elementOne == result)
+			if(elementOne == n)
 			{
 				appearance++;
 			}
 			
+			appearance += getNumAppearances(m, n);
+
 			m.addElement(0, elementOne);
 			
 		}

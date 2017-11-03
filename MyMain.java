@@ -61,14 +61,14 @@ public class MyMain {
 		//----------------------------
 		System.out.println("\n----------- Test: isReverse -------------\n");
 	
-		/*resB = ex.isReverse(m1);
+		resB = ex.isReverse(m1);
 		System.out.println(resB);
 		
 		resB = ex.isReverse(m2);
 		System.out.println(resB);		
 		
 		resB = ex.isReverse(m3);
-		System.out.println(resB);		*/
+		System.out.println(resB);		
 		
 		//----------------------------
 		//3. We test getNumAppearances
