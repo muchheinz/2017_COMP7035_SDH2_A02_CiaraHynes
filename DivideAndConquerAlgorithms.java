@@ -219,8 +219,25 @@ public class DivideAndConquerAlgorithms {
 	 * @return: The term being computed 
 	 */	
 	public int lucas(int n){
-		return n;
-
+		
+		int result = 0;
+		
+		if(n == 0)
+		{
+			result = 2;
+		}
+		
+		else if(n == 1)
+		{
+			result = 1;
+		}
+		
+		else
+		{
+			result = lucas(n-1) + lucas(n-2);
+		}
+		
+		return result;
 	}
 
 	//-------------------------------------------------------------------
@@ -233,9 +250,30 @@ public class DivideAndConquerAlgorithms {
 	 * ***
 	 * ... 
 	 * @param n: The length of the desired pattern
+	 * @return 
 	 */	
-	public void drawImage(int n){
+	public int drawImage(int n){
 
+		int number = 0;
+		int result = 0;
+		
+		if(n == 0)
+		{
+			return 1;
+		}
+		
+		else if(n == 1)
+		{
+			System.out.println("*");
+		}
+		
+		else
+		{	
+			System.out.print("*");
+			
+			result += (drawImage(n-1));
+		}
+		return result;
 	}
 		
 }
