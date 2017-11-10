@@ -276,7 +276,7 @@ public class DivideAndConquerAlgorithms {
 		//-----------------------------
 		//Output Variable --> InitialValue
 		//-----------------------------
-		MyList<Integer> res = null;
+		MyList<Integer> res = new MyDynamicList<Integer>();
 
 		//-----------------------------
 		//SET OF OPS
@@ -287,12 +287,56 @@ public class DivideAndConquerAlgorithms {
 		//-----------------------------
 		int scenario = 0; 		
 		
+		if(m1.length() > 0)
+		{
+			scenario = 1;
+		}
+		
+		else if(m2.length() > 0)
+		{
+			scenario = 2;
+		}
+		
+		else
+		{
+			
+		}
+		
 		//-----------------------------
 		// II. SCENARIO IMPLEMENTATION 
 		//-----------------------------
 			
 		switch(scenario){	
 			
+		case 1:
+			
+			int elementOne;
+			
+			elementOne = m1.getElement(0);
+			m1.removeElement(0);
+
+			res = concatenate(m1, m2);
+
+			res.addElement(0, elementOne);
+			m1.addElement(0, elementOne);
+
+			
+			break;
+			
+		case 2:
+			
+			int element;
+			
+			element = m2.getElement(0);
+			m2.removeElement(0);
+
+			res = concatenate(m1, m2);
+
+			res.addElement(0, element);
+			m2.addElement(0, element);
+
+			
+			break;
 		}
 			
 		//-----------------------------
