@@ -141,7 +141,7 @@ public class DivideAndConquerAlgorithms {
 		//-----------------------------
 		//Output Variable --> InitialValue
 		//-----------------------------
-		MyList<Integer> res = null;
+		MyList<Integer> res = new MyDynamicList<Integer>();
 
 		//-----------------------------
 		//SET OF OPS
@@ -150,13 +150,41 @@ public class DivideAndConquerAlgorithms {
 		//-----------------------------
 		// I. SCENARIO IDENTIFICATION
 		//-----------------------------
-		int scenario = 0; 				
+		int scenario = 0; 		
+		
+		if(m.length() == 0)
+		{
+			
+		}
+		
+		else
+		{
+			scenario = 2;
+		}
 		
 		//-----------------------------
 		// II. SCENARIO IMPLEMENTATION 
 		//-----------------------------
 		switch(scenario){	
+
+		case 2:
 			
+			int elementOne;
+			
+			elementOne = m.getElement(0);
+			m.removeElement(0);
+
+			res = smallerMyList(m, e);
+
+			if(elementOne < e)
+			{
+				res.addElement(0, elementOne);
+			}
+			
+
+			m.addElement(0, elementOne);
+			
+			break;
 		}
 		
 		//-----------------------------
@@ -178,7 +206,7 @@ public class DivideAndConquerAlgorithms {
 		//-----------------------------
 		//Output Variable --> InitialValue
 		//-----------------------------
-		MyList<Integer> res = null;
+		MyList<Integer> res = new MyDynamicList<Integer>();
 
 		//-----------------------------
 		//SET OF OPS
@@ -189,11 +217,44 @@ public class DivideAndConquerAlgorithms {
 		//-----------------------------
 		int scenario = 0; 			
 		
+		if(m.length() == 0)
+		{
+
+		}
+		
+		else
+		{
+			scenario = 2;
+		}
+		
+		
 		//-----------------------------
 		// II. SCENARIO IMPLEMENTATION 
 		//-----------------------------
 		switch(scenario){	
 				
+		case 1:
+			break;
+			
+		case 2:
+			
+			int elementOne;
+			
+			elementOne = m.getElement(0);
+			m.removeElement(0);
+
+			res = biggerEqualMyList(m, e);
+
+			if(elementOne >= e)
+			{
+				res.addElement(0, elementOne);
+				System.out.println("");
+			}
+			
+
+			m.addElement(0, elementOne);
+			
+			break;
 		}
 		
 		//-----------------------------
