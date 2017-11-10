@@ -254,7 +254,6 @@ public class DivideAndConquerAlgorithms {
 	 */	
 	public int drawImage(int n){
 
-		int number = 0;
 		int result = 0;
 		
 		if(n == 0)
@@ -271,7 +270,7 @@ public class DivideAndConquerAlgorithms {
 		{	
 			System.out.print("*");
 			
-			result += (drawImage(n-1));
+			result = (drawImage(n-1));
 		}
 		return result;
 	}
