@@ -139,8 +139,12 @@ public class ChangeMaking_1 {
 		//-----------------------------
 		//SET OF OPS
 		//-----------------------------
+		
+		if (coinValues.getElement(itemSelected) + changeGenerated <= amount)
+		{
+			res = true;
 
-					
+		}
 		//-----------------------------
 		//Output Variable --> Return FinalValue
 		//-----------------------------		
