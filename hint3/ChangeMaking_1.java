@@ -217,12 +217,25 @@ public class ChangeMaking_1 {
 		//-----------------------------
 		//Output Variable --> InitialValue
 		//-----------------------------
-		MyList<Integer> res = null;
-
+		MyList<Integer> res = new MyDynamicList<Integer>();
+		changeGenerated = 0;
+		
+		int coinsUsed = 0;
+		int accuracy = 0;
+		
 		//-----------------------------
 		//SET OF OPS
 		//-----------------------------
 
+		for( int count = 0; count <= sol.length(); count++)
+		{
+			coinsUsed += sol.getElement(count);
+		}
+		
+		accuracy = amount - changeGenerated;
+	
+		res.addElement(0, accuracy);
+		res.addElement(1, coinsUsed);
 		
 		//-----------------------------
 		//Output Variable --> Return FinalValue
@@ -246,13 +259,38 @@ public class ChangeMaking_1 {
 		//-----------------------------
 		//Output Variable --> InitialValue
 		//-----------------------------
-		MyList<Integer> res = null;
+		MyList<Integer> res = new MyDynamicList<Integer>();
 		MyList<Integer> solutionValue = null;
+		MyList<Integer> discarded = new MyDynamicList<Integer>();
+
+		
+		int changeGenerated = 0;
 
 		//-----------------------------
 		//SET OF OPS
 		//-----------------------------
+		
+		for(int count = 0; count < coinValues.length(); count++)
+		{
+			res.addElement(0, 0);
+			discarded.addElement(0, 0);
+			
+		}
 
+		while(isFinal(changeGenerated, discarded, coinValues, amount) == false)
+		{
+			int candidate = getCandidate(changeGenerated, discarded, coinValues);
+			
+			if(isValid(coinValues, amount, changeGenerated, candidate) == true)
+			{
+				
+				
+				if(isFinal(changeGenerated, discarded, coinValues, amount))
+				{
+					
+				}
+			}
+		}
 		
 		//-----------------------------
 		//Output Variable --> Return FinalValue
