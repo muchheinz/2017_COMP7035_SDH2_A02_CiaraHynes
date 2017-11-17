@@ -97,15 +97,17 @@ public class ChangeMaking_1 {
 		//SET OF OPS
 		//-----------------------------
 
-		while(res == -1 && index < size)
+		while((res == -1) && (index < size))
 		{
 			if (discarded.getElement(index) == 0){
 				res = index;
 				
 			}
+			
+			index++;
+
 		}
 		
-		index++;
 		
 		//-----------------------------
 		//Output Variable --> Return FinalValue
@@ -305,6 +307,7 @@ public class ChangeMaking_1 {
 		
 		solutionValue = getQuality(res, changeGenerated, amount);
 		
+		System.out.println("The final answer was " + solutionValue.getElement(0) + " and " + solutionValue.getElement(1) + " was the number of coins used");
 		
 		//-----------------------------
 		//Output Variable --> Return FinalValue
