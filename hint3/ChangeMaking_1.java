@@ -90,11 +90,22 @@ public class ChangeMaking_1 {
 		//Output Variable --> InitialValue
 		//-----------------------------
 		int res = -1;
+		int size = discarded.length();
+		int index = 0;
 
 		//-----------------------------
 		//SET OF OPS
 		//-----------------------------
 
+		while(res == -1 && index < size)
+		{
+			if (discarded.getElement(index) == 0){
+				res = index;
+				
+			}
+		}
+		
+		index++;
 		
 		//-----------------------------
 		//Output Variable --> Return FinalValue
