@@ -99,7 +99,7 @@ public class ChangeMaking_2 {
 		//SET OF OPS
 		//-----------------------------
 
-		while((res == -1) && (index < size))
+		while(index < size)
 		{
 			
 			if (discarded.getElement(index) == 0)
