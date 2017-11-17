@@ -188,9 +188,10 @@ public class ChangeMaking_1 {
 					res = false;
 				}
 			}
+			index++;
+
 		}
 		
-		index++;
 		//-----------------------------
 		//Output Variable --> Return FinalValue
 		//-----------------------------		
@@ -227,7 +228,7 @@ public class ChangeMaking_1 {
 		//SET OF OPS
 		//-----------------------------
 
-		for( int count = 0; count <= sol.length(); count++)
+		for( int count = 0; count < sol.length(); count++)
 		{
 			coinsUsed += sol.getElement(count);
 		}
@@ -270,6 +271,7 @@ public class ChangeMaking_1 {
 		//SET OF OPS
 		//-----------------------------
 		
+
 		for(int count = 0; count < coinValues.length(); count++)
 		{
 			res.addElement(0, 0);
@@ -282,15 +284,27 @@ public class ChangeMaking_1 {
 			int candidate = getCandidate(changeGenerated, discarded, coinValues);
 			
 			if(isValid(coinValues, amount, changeGenerated, candidate) == true)
+			{	
+				int value = res.getElement(candidate);
+				
+				res.removeElement(candidate);
+				res.addElement(candidate, value + 1);
+				
+				changeGenerated = changeGenerated + coinValues.getElement(candidate);
+			
+			}
+			
+			else
 			{
-				
-				
-				if(isFinal(changeGenerated, discarded, coinValues, amount))
-				{
-					
-				}
+				discarded.removeElement(candidate);
+				discarded.addElement(candidate, 1);
 			}
 		}
+		
+		displayElements(res);
+		
+		solutionValue = getQuality(res, changeGenerated, amount);
+		
 		
 		//-----------------------------
 		//Output Variable --> Return FinalValue
