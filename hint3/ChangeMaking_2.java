@@ -91,10 +91,30 @@ public class ChangeMaking_2 {
 		//-----------------------------
 		int res = -1;
 
+		int size = discarded.length();
+		int index = 0;
+		int largest = 0;
+
 		//-----------------------------
 		//SET OF OPS
 		//-----------------------------
 
+		while((res == -1) && (index < size))
+		{
+			
+			if (discarded.getElement(index) == 0)
+			{
+				if(coinValues.getElement(index) >= largest)
+				{
+					largest = coinValues.getElement(index);
+					res = index;
+				}
+				
+			}
+			
+			index++;
+
+		}
 		
 		//-----------------------------
 		//Output Variable --> Return FinalValue
@@ -129,6 +149,11 @@ public class ChangeMaking_2 {
 		//SET OF OPS
 		//-----------------------------
 
+		if (coinValues.getElement(itemSelected) + changeGenerated <= amount)
+		{
+			res = true;
+
+		}
 					
 		//-----------------------------
 		//Output Variable --> Return FinalValue
@@ -158,6 +183,26 @@ public class ChangeMaking_2 {
 		//-----------------------------
 		boolean res = true;
 
+		int index = 0;
+		int size = discarded.length();
+
+		//-----------------------------
+		//SET OF OPS
+		//-----------------------------
+
+		while((res == true) && (index < size))
+		{
+			if(discarded.getElement(index) == 0)
+			{
+				if(coinValues.getElement(index) + changeGenerated <= amount)
+				{
+					res = false;
+				}
+			}
+			index++;
+
+		}
+		
 		//-----------------------------
 		//SET OF OPS
 		//-----------------------------
@@ -189,8 +234,27 @@ public class ChangeMaking_2 {
 		//-----------------------------
 		//Output Variable --> InitialValue
 		//-----------------------------
-		MyList<Integer> res = null;
+		MyList<Integer> res = new MyDynamicList<Integer>();
+		changeGenerated = 0;
+		
+		int coinsUsed = 0;
+		int accuracy = 0;
+		
+		//-----------------------------
+		//SET OF OPS
+		//-----------------------------
 
+		for( int count = 0; count < sol.length(); count++)
+		{
+			coinsUsed += sol.getElement(count);
+		}
+		
+		accuracy = amount - changeGenerated;
+	
+		res.addElement(0, accuracy);
+		res.addElement(1, coinsUsed);
+		
+		
 		//-----------------------------
 		//SET OF OPS
 		//-----------------------------
@@ -216,13 +280,53 @@ public class ChangeMaking_2 {
 		//-----------------------------
 		//Output Variable --> InitialValue
 		//-----------------------------
-		MyList<Integer> res = null;
+		MyList<Integer> res = new MyDynamicList<Integer>();
 		MyList<Integer> solutionValue = null;
+		MyList<Integer> discarded = new MyDynamicList<Integer>();
+
+		
+		int changeGenerated = 0;
 
 		//-----------------------------
 		//SET OF OPS
 		//-----------------------------
+		
 
+		for(int count = 0; count < coinValues.length(); count++)
+		{
+			res.addElement(0, 0);
+			discarded.addElement(0, 0);
+			
+		}
+
+		while(isFinal(changeGenerated, discarded, coinValues, amount) == false)
+		{
+			int candidate = getCandidate(changeGenerated, discarded, coinValues);
+			
+			if(isValid(coinValues, amount, changeGenerated, candidate) == true)
+			{	
+				int value = res.getElement(candidate);
+				
+				res.removeElement(candidate);
+				res.addElement(candidate, value + 1);
+				
+				changeGenerated = changeGenerated + coinValues.getElement(candidate);
+			
+			}
+			
+			else
+			{
+				discarded.removeElement(candidate);
+				discarded.addElement(candidate, 1);
+			}
+		}
+		
+		displayElements(res);
+		
+		solutionValue = getQuality(res, changeGenerated, amount);
+		
+		System.out.println("The final answer was " + solutionValue.getElement(0) + " and " + solutionValue.getElement(1) + " coins were used");
+		
 		
 		//-----------------------------
 		//Output Variable --> Return FinalValue

@@ -307,7 +307,7 @@ public class ChangeMaking_1 {
 		
 		solutionValue = getQuality(res, changeGenerated, amount);
 		
-		System.out.println("The final answer was " + solutionValue.getElement(0) + " and " + solutionValue.getElement(1) + " was the number of coins used");
+		System.out.println("The final answer was " + solutionValue.getElement(0) + " and " + solutionValue.getElement(1) + " coins were used");
 		
 		//-----------------------------
 		//Output Variable --> Return FinalValue
