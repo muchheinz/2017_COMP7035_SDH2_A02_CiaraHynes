@@ -172,12 +172,25 @@ public class ChangeMaking_1 {
 		//Output Variable --> InitialValue
 		//-----------------------------
 		boolean res = true;
+		int index = 0;
+		int size = discarded.length();
 
 		//-----------------------------
 		//SET OF OPS
 		//-----------------------------
 
+		while((res == true) && (index < size))
+		{
+			if(discarded.getElement(index) == 0)
+			{
+				if(coinValues.getElement(index) + changeGenerated <= amount)
+				{
+					res = false;
+				}
+			}
+		}
 		
+		index++;
 		//-----------------------------
 		//Output Variable --> Return FinalValue
 		//-----------------------------		
