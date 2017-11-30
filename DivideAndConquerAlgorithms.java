@@ -252,13 +252,11 @@ public class DivideAndConquerAlgorithms {
 	 * @param n: The length of the desired pattern
 	 * @return 
 	 */	
-	public int drawImage(int n){
-
-		int result = 0;
+	public void drawImage(int n){
 		
 		if(n == 0)
 		{
-			return 1;
+			System.out.println("Nothing to print");
 		}
 		
 		else if(n == 1)
@@ -268,11 +266,18 @@ public class DivideAndConquerAlgorithms {
 		
 		else
 		{	
-			System.out.print("*");
 			
-			result = (drawImage(n-1));
+			drawImage(n-1);
+
+			for(int count = 0; count < n; count++)
+			{
+				System.out.print("*");
+			}
+			
+			System.out.println("");
+			
 		}
-		return result;
+
 	}
 		
 }
