@@ -4,7 +4,7 @@ package hint2;
 /**
  * The class contains the Divide and Conquer-based Algorithms we are using. 
  */
-public class DivideAndConquerAlgorithms {
+public class DivideAndConquerAlgorithms2 {
 
 	//----------------------------------------------
 	// Class constructor
@@ -12,7 +12,7 @@ public class DivideAndConquerAlgorithms {
 	/**
 	 * Constructor of the class. Do not edit it.
 	 */
-	public DivideAndConquerAlgorithms(){}
+	public DivideAndConquerAlgorithms2(){}
 		
 	//-------------------------------------------------------------------
 	// 0. iterativeDisplayElements --> Displays all elements of a MyList 

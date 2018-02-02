@@ -11,7 +11,7 @@ public class MyMain {
 	 */
 	public static void test(){
 		//1. We create the object to test the exercises
-		DivideAndConquerAlgorithms ex = new DivideAndConquerAlgorithms();
+		DivideAndConquerAlgorithms2 ex = new DivideAndConquerAlgorithms2();
 		
 		//2. We create extra variables for the tests
 		
